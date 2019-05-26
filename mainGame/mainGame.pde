@@ -1,10 +1,15 @@
 
+import processing.sound.*;
+SoundFile file;
+
 
 void setup() {
   fullScreen();
   noStroke();
   orientation(PORTRAIT);
   skinToggles();
+  file = new SoundFile(this, "apple-catcher.mp3");
+  file.play();
 }
 
 Sun bgSun = new Sun (500* displayDensity,100* displayDensity, 2, 0, 2);
@@ -46,7 +51,10 @@ void draw() {
     image(catchMe, 0, 0);
     resetMatrix();
     //customizable - eg. bucket, basket, bunny
-    image(playerContainer, mouseX - 50, containerFloor);
+    translate(mouseX - (50 * displayDensity), containerFloor);
+    scale(1*displayDensity);
+    image(playerContainer, 0,0);
+    resetMatrix();
     catchLogic();
     HUD();
 

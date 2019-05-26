@@ -21,7 +21,7 @@ void fallLogic() {
     if (splatTimer > 0 && splatTimer < 20) {
       fill(255);
       textSize(42);
-      text("SPLAT", catchMeX - 20 + random(-5, 5), 420 + random(-5, 5));
+      text("SPLAT", mouseX - ((20 + random(-5, 5)) * displayDensity), (420 + random(-5, 5)) * displayDensity);
     }
     if (splatTimer >= 20) {
       splatTimer = 0;
@@ -40,7 +40,7 @@ void fallLogic() {
     //lose point
     chances = chances - 1;
     catchMeY = -75 * displayDensity;
-    catchMeX = (random(0, 500)* displayDensity);
+    catchMeX = (random(25, 475)* displayDensity);
     yVel = 0;
     grav = 0;
   }
